@@ -1,3 +1,24 @@
 .App {
-  text-align: center;
+}
+
+body {
+  font-family: 'helvetica neue';
+  font-size: .8em;
+}
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.axis line,
+.axis path {
+  stroke-width: 1px;
+  stroke: black;
+  fill: none;
+}
+
+.dots circle {
+  fill: #555;
+  fill-opacity: .5;
 }
