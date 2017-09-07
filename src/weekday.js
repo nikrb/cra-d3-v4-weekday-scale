@@ -1,4 +1,5 @@
 // This function originated from mbostock's gist: https://gist.github.com/mbostock/5827353
+// implemented fix in comments: https://gist.github.com/mbostock/5827353#gistcomment-1750603
 import * as d3 from 'd3';
 
 const weekday = () => {
@@ -27,6 +28,7 @@ const weekday = () => {
     var days = weekdays % 5,
         day0 = ((new Date(year, 0, 1)).getDay() + 6) % 7;
     if (day0 + days > 4) days += 2;
+    if (day0 === 6) days -= 1;
     return new Date(year, 0, (weekdays / 5 | 0) * 7 + days + 1);
   };
 
