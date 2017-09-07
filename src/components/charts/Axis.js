@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import weekday from '../../weekday.js';
 
 export default class Axis extends React.Component {
   componentDidMount = () => {
@@ -10,7 +11,10 @@ export default class Axis extends React.Component {
   };
   renderAxis = () => {
     if( this.props.orient === "horiz"){
-      const haxis = d3.axisBottom( this.props.scale);
+      const dateFormat = d3.timeFormat( "%Y-%m-%d");
+      const haxis = d3.axisBottom( this.props.scale)
+        .tickFormat(function (d) { return dateFormat(weekday.invert(d)); });
+
       // FIXME: this.refs.axis isn't working here
       haxis( d3.select( '.horiz'));
     } else {
